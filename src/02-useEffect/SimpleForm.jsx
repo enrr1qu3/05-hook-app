@@ -1,5 +1,7 @@
 // importacion de Estados
 import { useEffect ,useState } from 'react';
+// Importacion de componentes
+import { Message } from './Message';
 
 
 export const SimpleForm = () => {
@@ -21,13 +23,15 @@ export const SimpleForm = () => {
 
   //hook de useEffect 
   useEffect( ()=> {
-    console.log('useEffect called');
+    // console.log('useEffect called');
   }, []);
+
   useEffect( () => {
-    console.log('formState changed');
+    // console.log('formState changed');
   }, [ username ]);
+  
   useEffect( () => {
-    console.log('Email changed')
+    // console.log('Email changed')
   }, [ email ])
   // //////////////////////////////////////
 
@@ -44,7 +48,10 @@ export const SimpleForm = () => {
       value={ username }
       onChange={ onInputChange }
       />
+
+     {( username == 'enrique1') && <Message />}
       {/* <br /> */}
+
     <input 
     type= 'text'
     className='form-control mt-2'
