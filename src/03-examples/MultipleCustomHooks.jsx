@@ -7,6 +7,7 @@ export const MultipleCustomHooks = () => {
 
   // https://www.breakingbadapi.com/api/quotes/1 cambiar cuando ya funcione
 
+  // console.log({ data, isLoading, hasError });
   if(isLoading){
     return(<h1>Loading...</h1>)
   }
