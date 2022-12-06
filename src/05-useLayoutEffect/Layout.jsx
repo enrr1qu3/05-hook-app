@@ -1,9 +1,9 @@
 // hook hecho a mano
-import { useCounter, useFetch } from '../hook/index';
+import { useCounter, useFetch } from '../hook';
 //Importaciones de componentes 
-import { LoadingQuote, Quote } from './index';
+import { LoadingQuote, Quote } from '../03-examples';
 
-export const MultipleCustomHooks = () => {
+export const Layout = () => {
     
   const { counter, increment } = useCounter(1);
   const { data, isLoading, hasError } = useFetch(`https://api.breakingbadquotes.xyz/v1/quotes/${ counter }`);

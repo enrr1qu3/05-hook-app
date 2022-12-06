@@ -7,6 +7,9 @@ import { useState } from 'react';
     const increment = ( value = 1 ) => {
       setCounter( counter + value );
     }
+    // const increment = (  ) => {
+    //   setCounter( counter + 1 );
+    // }
 
     const decrement = ( value = 1 ) => {
       // if( counter <= 0 ) return;
