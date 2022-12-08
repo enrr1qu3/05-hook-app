@@ -1,53 +1,24 @@
-import { useEffect, useReducer } from 'react'
-import { todoReducer } from './todoReducer';
+import { useTodos } from '../hook'
 import { TodoList, TodoAdd } from './index';
 
-const initialState = [
-  // {
-  //   id: new Date().getTime(),
-  //   description: 'Recolectar la piedra del alma',
-  //   done: false
-  // },
+// const initialState = [
+//   // {
+//   //   id: new Date().getTime(),
+//   //   description: 'Recolectar la piedra del alma',
+//   //   done: false
+//   // },
 
-];
-const init = () => {
-  return JSON.parse(localStorage.getItem('todos')) || [];
-}
+// ];
+// const init = () => {
+//   return JSON.parse(localStorage.getItem('todos')) || [];
+// }
 
 export const TodoApp = () => {
-  // el init se usa para cargar los datos en localStorage
-  const [todos, dispatch] = useReducer( todoReducer, initialState, init);
-  
-  useEffect(() =>{
-    localStorage.setItem('todos', JSON.stringify(todos) )
-  },[ todos ])
-  
-  const handleNewTodo = ( todo ) => {
-    const action = {
-      type: '[TODO] Add Todo',
-      payload: todo
-    }
-
-    dispatch( action );
-  }
-
-  const handleDeleteTodo = ( id ) => {
-    dispatch({
-      type: '[TODO] Remove Todo',
-      payload: id
-    })
-  }
-
-  const handleToggleTodo = ( id ) => {
-    dispatch({
-      type: '[TODO] Toggle Todo',
-      payload: id
-    })
-  }
+  const { todos, handleNewTodo , handleDeleteTodo, handleToggleTodo } = useTodos();
 
   return (
     <>
-      <h1>TodoApp: 10, <small> Pendientes: 2 </small></h1>
+      <h1>TodoApp: {todos.length}, <small> Pendientes: { todos.filter(todo => !todo.done).length} </small></h1>
       <hr />
       <div className='row'>
         <div className='col-7'>
