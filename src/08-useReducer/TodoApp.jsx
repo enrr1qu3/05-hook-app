@@ -22,7 +22,7 @@ export const TodoApp = () => {
     localStorage.setItem('todos', JSON.stringify(todos) )
   },[ todos ])
   
-  const handleNewTodo = (todo) => {
+  const handleNewTodo = ( todo ) => {
     const action = {
       type: '[TODO] Add Todo',
       payload: todo
@@ -44,14 +44,16 @@ export const TodoApp = () => {
       <hr />
       <div className='row'>
         <div className='col-7'>
-          <TodoList todos={todos} onDeleteTodo={handleDeleteTodo}/>
+
+          <TodoList todos={ todos } onDeleteTodo={ handleDeleteTodo }/>
+
         </div>
         <div className='col-5'>
           <h4>Agregar TODO</h4>
           <hr />
-          {/* TodoAdd onNewTodo( todo )*/}
-          {/* { id: newDate()..., desription: el input, done:false } */}
+
           <TodoAdd onNewTodo={ handleNewTodo } />
+
         </div>
       </div>
 
